@@ -1,15 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Book } from 'src/books/book.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
 export class User {
     @PrimaryGeneratedColumn('uuid')
     id: string;
-
-    @Column()
-    firstName: string;
-
-    @Column()
-    lastName: string;
 
     @Column({ unique: true })
     email: string;
@@ -17,6 +12,6 @@ export class User {
     @Column()
     password: string;
 
-    @Column({ default: true })
-    isActive: boolean;
+    @OneToMany(() => Book, book => book.user)
+    books: Book[];
 }
