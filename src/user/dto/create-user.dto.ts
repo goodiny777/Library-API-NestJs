@@ -7,16 +7,6 @@ export class CreateUserDto {
     id: string;
 
     @IsString()
-    @Min(2)
-    @MaxLength(30)
-    firstName: string;
-
-    @IsString()
-    @Min(2)
-    @MaxLength(30)
-    lastName: string;
-
-    @IsString()
     @Min(6)
     @MaxLength(30)
     email: string;
@@ -25,8 +15,4 @@ export class CreateUserDto {
     @Min(6)
     @MaxLength(30)
     password: string;
-
-    @IsString()
-    @IsEmpty()
-    isActive: boolean;
 }

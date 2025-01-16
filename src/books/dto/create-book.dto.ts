@@ -1,4 +1,5 @@
 import { IsString, IsNumber, Min, MaxLength, IsEmpty } from 'class-validator';
+import { User } from '../../user/user.entity';
 
 
 export class CreateBookDto {
@@ -17,4 +18,7 @@ export class CreateBookDto {
     @IsString()
     @MaxLength(50)
     author: string;
+
+    @IsEmpty({ message: 'User should not be provided' })
+    user: User;
 }
